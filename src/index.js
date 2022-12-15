@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
@@ -7,26 +7,29 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/home/Home.component";
 import ErrorPage from "./routes/errors/error-page";
 import Shop from "./routes/shop/Shop.component";
+import NavBar from "./routes/navbar/NavBar.component";
 
 const router = createBrowserRouter([
   {
-    element: <Home />,
+    element: <NavBar />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "home",
-    element: <Home></Home>,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "home/shop",
-    element: <Shop></Shop>,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "home",
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ]);
 

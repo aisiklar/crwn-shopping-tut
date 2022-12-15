@@ -1,5 +1,5 @@
 import CategoriesDirectory from "../../components/categories-directory/categoriesDirectory.component";
-import NavBar from '../../components/navbar/NavBar.component'
+import NavBar from "../navbar/NavBar.component";
 
 const Home = () => {
   const categories = [
@@ -32,8 +32,7 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar></NavBar>
-      <CategoriesDirectory categories={categories}/>
+      <CategoriesDirectory categories={categories} />
     </div>
   );
 };
