@@ -8,6 +8,7 @@ import Home from "./routes/home/Home.component";
 import ErrorPage from "./routes/errors/error-page";
 import Shop from "./routes/shop/Shop.component";
 import NavBar from "./routes/navbar/NavBar.component";
+import SignIn from "./routes/sign-in/SignIn.component";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "signIn",
+        element: <SignIn />,
         errorElement: <ErrorPage />,
       },
     ],
