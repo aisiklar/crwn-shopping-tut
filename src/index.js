@@ -8,7 +8,9 @@ import Home from "./routes/home/Home.component";
 import ErrorPage from "./routes/errors/error-page";
 import Shop from "./routes/shop/Shop.component";
 import NavBar from "./routes/navbar/NavBar.component";
-import Authentication from "./routes/authentication/authentication.component";
+import Authentication from "./routes/authentication/Authentication.component";
+import { UserProvider } from "./contexts/user.context";
+import { UserContext } from "./contexts/user.context";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "signIn",
+        path: "auth",
         element: <Authentication />,
         errorElement: <ErrorPage />,
       },
@@ -42,7 +44,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 

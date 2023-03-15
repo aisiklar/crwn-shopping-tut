@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import FormInput from "../form-input/Form-input.component";
 import "./signup-form.styles.scss";
 import Button from "../button/button.component";
@@ -7,6 +7,8 @@ import {
   createAuthUserWithEmailAndPassword,
   getUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+
+import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   displayName: "",
@@ -23,6 +25,7 @@ const SignUpForm = () => {
 
   // destructure form inputs
   const { displayName, email, password, confirmPassword } = formFields;
+  const { setCurrentUser } = useContext(UserContext);
 
   const changeHandler = (event) => {
     //console.log("event: ", event);
@@ -59,7 +62,7 @@ const SignUpForm = () => {
         password
       );
       console.log("user from createAuthUserWithEmailAndPassword: ", user);
-
+      setCurrentUser(user);
       const userDocRef = await getUserDocumentFromAuth(user, { displayName });
       console.log("userDocRef: ", userDocRef);
     } catch (error) {
@@ -121,5 +124,3 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
-
-<h1>Sign-in page</h1>;

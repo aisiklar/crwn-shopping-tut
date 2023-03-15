@@ -1,6 +1,12 @@
 import "./form-input.styles.scss";
 
 const FormInput = ({ label, ...otherProps }) => {
+  /* console.log(
+    `props from parent.. label: ${label}, ...otherProps: ${JSON.stringify(
+      otherProps
+    )}`
+  );
+ */
   return (
     <div className="group">
       <input className="form-input" {...otherProps}></input>
