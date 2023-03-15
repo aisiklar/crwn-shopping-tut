@@ -3,7 +3,7 @@ import './categoriesDirectory.styles.scss';
 
 const CategoriesDirectory = ({categories}) => {
 
-    console.log('categories: ', categories);
+    //console.log('categories: ', categories);
 
     return (
         <div className='categoriesDirectory-container'>

@@ -21,7 +21,7 @@ const SignUpForm = () => {
   console.log("rendered SignUpForm..");
   const [formFields, setFormFields] = useState(defaultFormFields);
 
-  console.log("formFields: ", formFields);
+  //console.log("formFields: ", formFields);
 
   // destructure form inputs
   const { displayName, email, password, confirmPassword } = formFields;
@@ -62,7 +62,7 @@ const SignUpForm = () => {
         password
       );
       console.log("user from createAuthUserWithEmailAndPassword: ", user);
-      setCurrentUser(user);
+      //setCurrentUser(user);
       const userDocRef = await getUserDocumentFromAuth(user, { displayName });
       console.log("userDocRef: ", userDocRef);
     } catch (error) {

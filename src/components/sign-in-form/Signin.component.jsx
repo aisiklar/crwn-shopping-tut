@@ -21,7 +21,7 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { setCurrentUser } = useContext(UserContext);
 
-  console.log("formFields: ", formFields);
+  //console.log("formFields: ", formFields);
 
   // destructure form inputs
   const { email, password } = formFields;
@@ -48,13 +48,13 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("submitted: ", event);
-    console.log("signinForm- email: ", email);
-    console.log("signinForm- password: ", password);
+    //console.log("signinForm- email: ", email);
+    //console.log("signinForm- password: ", password);
 
     try {
       const user = await signInAuthUserWithEmailAndPassword(email, password);
       console.log("signinForm - user: ", user);
-      setCurrentUser(user);
+      //setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -72,10 +72,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    console.log({ user });
-    setCurrentUser(user);
-    await getUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   return (
